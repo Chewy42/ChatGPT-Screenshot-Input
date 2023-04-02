@@ -2,22 +2,18 @@
   "manifest_version": 2,
   "name": "ChatGPT Screenshot Input",
   "version": "1.0",
-  "description": "Capture text from screenshots and input it directly into ChatGPT.",
+  "description": "Capture screenshot and extract text for input in ChatGPT.",
   "icons": {
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "48": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
   },
   "permissions": [
     "activeTab",
     "tabs",
-    "contextMenus"
+    "<all_urls>"
   ],
-  "browser_action": {
-    "default_icon": "icon48.png",
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  }
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }
