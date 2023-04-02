@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "ChatGPT Screenshot Input",
+  "version": "1.0",
+  "description": "Capture text from screenshots and input it directly into ChatGPT.",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "contextMenus"
+  ],
+  "browser_action": {
+    "default_icon": "icon48.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
