@@ -1,21 +1,34 @@
 document.getElementById("capture").addEventListener("click", () => {
   chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
     // 在这里调用OCR API来识别文本
-    const ocrApiUrl = "https://your-ocr-api-url";
+    const ocrApiUrl = "https://vision.googleapis.com/v1/images:annotate";
     const apiKey = "AIzaSyA7DgNWwtUPQ6iEFuvNkFLtnZ3ZPoGtI_k";
     const requestData = {
       url: ocrApiUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "apikey": apiKey,
+        "Authorization": `Bearer ${apiKey}`,
       },
-      body: JSON.stringify({ base64Image: dataUrl.split(",")[1] }),
+      body: JSON.stringify({
+        requests: [
+          {
+            image: {
+              content: dataUrl.split(",")[1],
+            },
+            features: [
+              {
+                type: "TEXT_DETECTION",
+              },
+            ],
+          },
+        ],
+      }),
     };
     fetch(requestData)
       .then((response) => response.json())
       .then((ocrResult) => {
-        const extractedText = ocrResult["ParsedResults"][0]["ParsedText"];
+        const extractedText = ocrResult["responses"][0]["textAnnotations"][0]["description"];
         // 将提取到的文本插入到ChatGPT输入框
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           const code = `
