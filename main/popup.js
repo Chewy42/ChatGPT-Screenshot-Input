@@ -2,7 +2,7 @@ document.getElementById("capture").addEventListener("click", () => {
   chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
     // 在这里调用OCR API来识别文本
     const ocrApiUrl = "https://vision.googleapis.com/v1/images:annotate";
-    const apiKey = "AIzaSyD1eOkchyfZu1BZ2gtIk1R7aph6m4_cPjA";
+    const apiKey = "AIzaSyD1eOkchyfZu1BZ2gtIk1R7aph6m4_cPjA"; // 请替换为您的实际API密钥
     const requestData = {
       url: ocrApiUrl,
       method: "POST",
