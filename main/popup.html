@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <button id="capture">Capture Text from Screenshot</button>
-  <textarea id="recognizedText" readonly></textarea>
-  <script src="popup.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>ChatGPT Screenshot Input</title>
+    <style>
+      body {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ChatGPT截图输入</h1>
+    <button id="capture">截图并提取文本</button>
+    <script src="popup.js"></script>
+  </body>
 </html>
