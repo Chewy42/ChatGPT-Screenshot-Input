@@ -8,7 +8,7 @@ document.getElementById("capture").addEventListener("click", () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
+        "Authorization": `key=${apiKey}`,
       },
       body: JSON.stringify({
         requests: [
