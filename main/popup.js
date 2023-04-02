@@ -2,7 +2,7 @@ document.getElementById("capture").addEventListener("click", () => {
   chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
     // 在这里调用OCR API来识别文本
     const ocrApiUrl = "https://your-ocr-api-url";
-    const apiKey = "your-api-key";
+    const apiKey = "AIzaSyA7DgNWwtUPQ6iEFuvNkFLtnZ3ZPoGtI_k";
     const requestData = {
       url: ocrApiUrl,
       method: "POST",
