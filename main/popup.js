@@ -25,7 +25,11 @@ document.getElementById("capture").addEventListener("click", () => {
         ],
       }),
     };
-    fetch(requestData)
+    fetch(requestData.url, {
+      method: requestData.method,
+      headers: requestData.headers,
+      body: requestData.body,
+    })
       .then((response) => response.json())
       .then((ocrResult) => {
         const extractedText = ocrResult["responses"][0]["textAnnotations"][0]["description"];
